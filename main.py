@@ -1,5 +1,6 @@
 import os
 import zipfile
+import time # Shu qatorni qo'shing
 import telebot
 from telebot import types
 from dotenv import load_dotenv
@@ -150,7 +151,7 @@ def finish_collection(message):
     bot.send_message(user_id, f"{len(file_paths)} ta fayl topildi. ZIP arxivini yaratmoqdaman...")
 
     # ZIP fayli nomini yaratish
-    zip_file_name = f"fayllar_{user_id}_{telebot.util.time.time()}.zip"
+    zip_file_name = f"fayllar_{user_id}_{time.time()}.zip" # Faqat time.time() ni ishlatish
     zip_file_path = os.path.join(TEMP_DIR, zip_file_name)
     
     try:
